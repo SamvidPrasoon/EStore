@@ -1,0 +1,7 @@
+go build -o bin/app ./cmd/api
+
+go run ./cmd/main.go
+
+migrate --path db/migrations -database "postgresql://postgres@localhost:5432/EStore?sslmode=disabled" up
+
+migrate --path db/migrations -database "postgresql://postgres@localhost:5432/EStore?sslmode=disabled" down
